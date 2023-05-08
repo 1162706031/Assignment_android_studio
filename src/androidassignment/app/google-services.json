@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "84130645419",
+    "firebase_url": "https://silken-sled-356305-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "silken-sled-356305",
+    "storage_bucket": "silken-sled-356305.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:84130645419:android:6be42b680a7b9dc21fbeee",
+        "android_client_info": {
+          "package_name": "com.example.groupassigment"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "84130645419-r89i5bgqud2hgob0kdu6khmd8adbsro5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_LH3SOtkUqo7nCEDJvQZibcuDDK-eNa4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "84130645419-r89i5bgqud2hgob0kdu6khmd8adbsro5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
