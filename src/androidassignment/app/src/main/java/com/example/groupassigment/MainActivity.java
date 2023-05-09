@@ -7,6 +7,8 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.groupassigment.ui.login.ANULogin;
+
 
 public class MainActivity extends AppCompatActivity {
     private Button mLoginButton;
@@ -19,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                Intent intent = new Intent(MainActivity.this, ANULogin.class);
                 startActivity(intent);
             }
         });
