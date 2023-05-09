@@ -48,7 +48,10 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     implementation platform('com.google.firebase:firebase-bom:32.0.0')
     implementation 'com.google.firebase:firebase-analytics'
-    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation files('libs/gson-2.8.6.jar')
+    implementation files('libs/opencsv-5.5.2.jar')
+    implementation files('libs/commons-lang3-3.6.jar')
+    implementation files('libs/commons-csv-1.10.0.jar')
 
 
     //dependency for dashboard
