@@ -14,8 +14,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:riv_oval="true"
 
-        android:src="@drawable/anu_logo_print"
-        />
+        android:src="@drawable/anu_logo_print" />
 
     <View
         android:id="@+id/viewSupporter"
