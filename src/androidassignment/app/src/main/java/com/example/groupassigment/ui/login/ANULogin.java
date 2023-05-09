@@ -22,6 +22,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.groupassigment.R;
 import com.example.groupassigment.SignupActivity;
+import com.example.groupassigment.dashboardMain;
 import com.example.groupassigment.databinding.ActivityAnuloginBinding;
 
 public class ANULogin extends AppCompatActivity {
@@ -130,6 +131,8 @@ public class ANULogin extends AppCompatActivity {
         String welcome = getString(R.string.welcome) + model.getDisplayName();
         // TODO : initiate successful logged in experience
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(ANULogin.this, dashboardMain.class);
+        startActivity(intent);
     }
 
     private void showLoginFailed(@StringRes Integer errorString) {
