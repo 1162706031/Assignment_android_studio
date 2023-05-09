@@ -1,0 +1,99 @@
+{
+  "root": {
+    "left": {
+      "right": {
+        "height": 1,
+        "value": -1725420582,
+        "A": [
+          "LAWS"
+        ]
+      },
+      "height": 2,
+      "value": -1742710179,
+      "A": [
+        "MGMT",
+        "CBEA",
+        "EXTNA",
+        "EXTNB",
+        "BUSN",
+        "INFS",
+        "ACST",
+        "STAT",
+        "ECON",
+        "EMET",
+        "FINM",
+        "MKTG",
+        "MMIB",
+        "BUSI",
+        "ECHI"
+      ]
+    },
+    "right": {
+      "height": 1,
+      "value": 854525050,
+      "A": [
+        "EXTNB",
+        "EXTNA",
+        "COMP",
+        "ENGN",
+        "CECS",
+        "COMPP",
+        "COMPF",
+        "INFTF",
+        "INFTP"
+      ]
+    },
+    "height": 3,
+    "value": -1014900559,
+    "A": [
+      "MEAS",
+      "HIST",
+      "ARTH",
+      "ENGL",
+      "LING",
+      "PHIL",
+      "GREK",
+      "ARAB",
+      "FREN",
+      "ITAL",
+      "MUSI",
+      "LATN",
+      "PERS",
+      "CLAS",
+      "SOCY",
+      "SPAN",
+      "ARTS",
+      "SOCR",
+      "BIAN",
+      "CRIM",
+      "ARCH",
+      "ANCH",
+      "ARTV",
+      "ANTH",
+      "CHMD",
+      "POLS",
+      "SCRN",
+      "INDG",
+      "ANIP",
+      "HUMN",
+      "MUSC",
+      "EURO",
+      "DESN",
+      "PORT",
+      "DEMO",
+      "TURK",
+      "GEND",
+      "HONS",
+      "GERM",
+      "ENVS",
+      "RUSS",
+      "IDEC",
+      "LAWS",
+      "PPEI",
+      "DESA",
+      "LANG",
+      "THES",
+      "WARS"
+    ]
+  }
+}
