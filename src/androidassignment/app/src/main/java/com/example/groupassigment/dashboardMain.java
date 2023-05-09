@@ -4,10 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -18,7 +16,7 @@ public class dashboardMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard_main);
 
-        DrawerLayout drawerLayout = findViewById(R.id.drawerlayout);
+        DrawerLayout drawerLayout = findViewById(R.id.card_container);
         NavigationView navigationView = findViewById(R.id.navigationView);
         navigationView.bringToFront();
         navigationView.setNavigationItemSelectedListener(item -> {
