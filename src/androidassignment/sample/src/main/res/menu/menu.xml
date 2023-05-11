@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/Fragment_Page_1"
+        android:icon="@drawable/icon_all"
+        android:title="All" />
+
+    <item
+        android:id="@+id/Fragment_Page_2"
+        android:icon="@drawable/icon_mine"
+        android:title="Mine" />
+
+    <item
+        android:id="@+id/Fragment_Page_3"
+        android:icon="@drawable/icon_chat"
+        android:title="Chat" />
+</menu>

@@ -1,0 +1,29 @@
+{
+  "courselist": [
+    {
+      "coverUrl": "",
+      "courseName": "course1",
+      "teacherName": "sam"
+    },
+    {
+      "coverUrl": "",
+      "courseName": "course2",
+      "teacherName": "sam2"
+    },
+    {
+      "coverUrl": "",
+      "courseName": "course3",
+      "teacherName": "sam3"
+    },
+    {
+      "coverUrl": "",
+      "courseName": "course4",
+      "teacherName": "sam4"
+    },
+    {
+      "coverUrl": "",
+      "courseName": "course5",
+      "teacherName": "sam5"
+    }
+  ]
+}

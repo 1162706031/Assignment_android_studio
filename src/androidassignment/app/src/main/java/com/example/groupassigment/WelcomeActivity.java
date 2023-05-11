@@ -4,12 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
-import android.os.Looper;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.groupassigment.MainActivity;
-import com.example.groupassigment.R;
+import com.example.sample.logic.homepage.HomeActivity;
 
 public class WelcomeActivity extends AppCompatActivity {
     // 定义欢迎页面的时间，单位为毫秒
@@ -36,7 +34,8 @@ public class WelcomeActivity extends AppCompatActivity {
             public void run() {
                 if (!isShowed) {
                     // 跳转到MainActivity
-                    Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
+//                    Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
+                    Intent intent = new Intent(WelcomeActivity.this, HomeActivity.class);
                     startActivity(intent);
                     // 结束当前Activity
                     finish();
