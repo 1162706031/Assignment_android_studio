@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.groupassigment"
-        minSdk 31
+        minSdk 24
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -48,6 +48,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     implementation platform('com.google.firebase:firebase-bom:32.0.0')
     implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-firestore-ktx'
     implementation files('libs/gson-2.8.6.jar')
     implementation files('libs/opencsv-5.5.2.jar')
     implementation files('libs/commons-lang3-3.6.jar')

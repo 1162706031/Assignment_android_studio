@@ -22,4 +22,8 @@ allprojects {
         mavenCentral()  // Maven Central repository
 
     }
+
+    configurations.all {
+        exclude group: 'com.google.code.gson'
+    }
 }

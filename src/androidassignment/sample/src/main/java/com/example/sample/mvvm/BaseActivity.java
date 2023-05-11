@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider;
 import java.lang.reflect.ParameterizedType;
 
 public abstract class BaseActivity<VM extends ViewModel> extends AppCompatActivity {
-    VM mViewModel;
+    protected VM mViewModel;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

@@ -70,5 +70,8 @@ public class AllCourseFragment extends BaseFragment<AllCourseViewModel> {
 
         //startup with all data
         mViewModel.searchAllCourse("");
+
+
+        mViewModel.uploadAllcourse();
     }
 }
