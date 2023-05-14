@@ -1,16 +1,14 @@
 package com.example.sample.data;
 
-public class MsgBean {
-    String sessionId;
+import java.io.Serializable;
+
+public class MsgBean implements Serializable {
     String text;
-    String updateTime;
+    long updateTime;
 
     String userId;
     String userHeadUrl;
 
-    public MsgBean(String text) {
-        this.text = text;
-    }
 
     public String getUserHeadUrl() {
         return userHeadUrl;
@@ -28,13 +26,6 @@ public class MsgBean {
         this.userId = userId;
     }
 
-    public String getSessionId() {
-        return sessionId;
-    }
-
-    public void setSessionId(String sessionId) {
-        this.sessionId = sessionId;
-    }
 
     public String getText() {
         return text;
@@ -44,11 +35,11 @@ public class MsgBean {
         this.text = text;
     }
 
-    public String getUpdateTime() {
+    public long getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(String updateTime) {
+    public void setUpdateTime(long updateTime) {
         this.updateTime = updateTime;
     }
 }

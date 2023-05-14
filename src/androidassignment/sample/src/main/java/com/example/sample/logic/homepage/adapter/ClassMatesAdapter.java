@@ -9,41 +9,39 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sample.R;
-import com.example.sample.data.SessionBean;
+import com.example.sample.data.ClassMates;
 import com.example.sample.mvvm.ItemClickCallBack;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SessionListAdapter extends RecyclerView.Adapter<SessionListAdapter.ViewHolder> {
+public class ClassMatesAdapter extends RecyclerView.Adapter<ClassMatesAdapter.ViewHolder> {
 
-    ItemClickCallBack<SessionBean> callBack;
+    ItemClickCallBack<ClassMates> callBack;
 
-    public SessionListAdapter(ItemClickCallBack<SessionBean> i) {
+    public ClassMatesAdapter(ItemClickCallBack<ClassMates> i) {
         callBack = i;
     }
 
-    public void refreshData(List<SessionBean> list) {
+    public void refreshData(List<ClassMates> list) {
         dataList.clear();
         dataList.addAll(list);
         notifyDataSetChanged();
     }
 
-    List<SessionBean> dataList = new ArrayList<>();
+    List<ClassMates> dataList = new ArrayList<>();
 
     @NonNull
     @Override
-    public SessionListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_item_session, parent, false);
+    public ClassMatesAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_item_classmate, parent, false);
         return new ViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull SessionListAdapter.ViewHolder holder, int position) {
-        SessionBean sessionBean = dataList.get(position);
-        holder.TvName.setText(sessionBean.getSessionName());
-        holder.TvLastMsg.setText(sessionBean.getLastMsg());
-        holder.TvTime.setText(sessionBean.getUpdateTime() + "");
+    public void onBindViewHolder(@NonNull ClassMatesAdapter.ViewHolder holder, int position) {
+        ClassMates bean = dataList.get(position);
+        holder.TvName.setText(bean.getName());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,14 +58,10 @@ public class SessionListAdapter extends RecyclerView.Adapter<SessionListAdapter.
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView TvName;
-        TextView TvLastMsg;
-        TextView TvTime;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             TvName = itemView.findViewById(R.id.tv_name);
-            TvLastMsg = itemView.findViewById(R.id.tv_last_msg);
-            TvTime = itemView.findViewById(R.id.tv_time);
         }
     }
 }

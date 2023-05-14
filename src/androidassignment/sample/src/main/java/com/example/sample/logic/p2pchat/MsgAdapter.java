@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.sample.MyApplication;
 import com.example.sample.R;
 import com.example.sample.data.MsgBean;
 import com.example.sample.utils.image.impls.GlideImageLoader;
@@ -36,18 +37,20 @@ public class MsgAdapter extends RecyclerView.Adapter<MsgAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MsgAdapter.ViewHolder holder, int position) {
         MsgBean msg = dataList.get(position);
-        boolean isLeft = position % 2 == 0;
-        if (isLeft) {//对方
-            GlideImageLoader.load(holder.IvHead, msg.getUserHeadUrl());
+        boolean isLeft = !MyApplication.user1.getEmail().equals(msg.getUserId());
+        if (isLeft) {
+            GlideImageLoader.load(holder.IvHead, msg.getUserHeadUrl(), R.drawable.icon_head);
             holder.TvContent.setText(msg.getText());
         } else {
-            GlideImageLoader.load(holder.IvHeadR, msg.getUserHeadUrl());
+            GlideImageLoader.load(holder.IvHeadR, msg.getUserHeadUrl(), R.drawable.icon_head2);
             holder.TvContentR.setText(msg.getText());
         }
         holder.TvContent.setVisibility(isLeft ? View.VISIBLE : View.GONE);
         holder.IvHead.setVisibility(isLeft ? View.VISIBLE : View.GONE);
+        holder.IvArrow.setVisibility(isLeft ? View.VISIBLE : View.GONE);
         holder.IvHeadR.setVisibility(isLeft ? View.GONE : View.VISIBLE);
         holder.TvContentR.setVisibility(isLeft ? View.GONE : View.VISIBLE);
+        holder.IvArrowR.setVisibility(isLeft ? View.GONE : View.VISIBLE);
     }
 
     @Override
@@ -61,10 +64,16 @@ public class MsgAdapter extends RecyclerView.Adapter<MsgAdapter.ViewHolder> {
         ImageView IvHeadR;
         TextView TvContentR;
 
+        View IvArrow, IvArrowR;
+
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             IvHead = itemView.findViewById(R.id.iv_head);
             IvHeadR = itemView.findViewById(R.id.iv_head_r);
+            IvArrow = itemView.findViewById(R.id.iv_arrow);
+            IvArrowR = itemView.findViewById(R.id.iv_arrow_r);
+
             TvContent = itemView.findViewById(R.id.tv_content);
             TvContentR = itemView.findViewById(R.id.tv_content_r);
         }

@@ -1,9 +1,10 @@
 package com.example.sample.data;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CourseBean {
+public class CourseBean implements Serializable {
 
     String courseId;
     String coverUrl;

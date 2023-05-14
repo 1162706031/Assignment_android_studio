@@ -1,18 +1,20 @@
 package com.example.sample.data;
 
-public class SessionBean {
-    String sessionId;
-    String sesionName;
-    String updateTime;
-    String lastMsg;
-    int newMsg;
+import java.io.Serializable;
 
-    public String getLastMsg() {
-        return lastMsg;
+public class SessionBean implements Serializable {
+    String sessionId;
+    String roomId;
+    String sessionName;
+    long updateTime;
+    String lastMsg;
+
+    public String getRoomId() {
+        return roomId;
     }
 
-    public void setLastMsg(String lastMsg) {
-        this.lastMsg = lastMsg;
+    public void setRoomId(String roomId) {
+        this.roomId = roomId;
     }
 
     public String getSessionId() {
@@ -23,27 +25,29 @@ public class SessionBean {
         this.sessionId = sessionId;
     }
 
-    public String getSesionName() {
-        return sesionName;
+    public String getLastMsg() {
+        return lastMsg;
     }
 
-    public void setSesionName(String sesionName) {
-        this.sesionName = sesionName;
+    public void setLastMsg(String lastMsg) {
+        this.lastMsg = lastMsg;
     }
 
-    public String getUpdateTime() {
+
+    public String getSessionName() {
+        return sessionName;
+    }
+
+    public void setSessionName(String sessionName) {
+        this.sessionName = sessionName;
+    }
+
+    public long getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(String updateTime) {
+    public void setUpdateTime(long updateTime) {
         this.updateTime = updateTime;
     }
 
-    public int getNewMsg() {
-        return newMsg;
-    }
-
-    public void setNewMsg(int newMsg) {
-        this.newMsg = newMsg;
-    }
 }

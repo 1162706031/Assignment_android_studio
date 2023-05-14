@@ -7,7 +7,7 @@ import android.os.HandlerThread;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.sample.logic.homepage.HomeActivity;
+import com.example.sample.logic.auth.LoginActivity;
 
 public class WelcomeActivity extends AppCompatActivity {
     // 定义欢迎页面的时间，单位为毫秒
@@ -35,7 +35,7 @@ public class WelcomeActivity extends AppCompatActivity {
                 if (!isShowed) {
                     // 跳转到MainActivity
 //                    Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
-                    Intent intent = new Intent(WelcomeActivity.this, HomeActivity.class);
+                    Intent intent = new Intent(WelcomeActivity.this, LoginActivity.class);
                     startActivity(intent);
                     // 结束当前Activity
                     finish();

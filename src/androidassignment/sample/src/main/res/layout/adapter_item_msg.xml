@@ -2,27 +2,43 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:paddingTop="30dp"
     android:paddingBottom="30dp"
-    android:background="#eeeeee"
+    tools:background="#ff3344"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
         android:id="@+id/iv_head"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        tools:background="#ffffff"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_arrow"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/icon_arrow"
+        app:layout_constraintLeft_toLeftOf="@id/tv_content"
+        app:layout_constraintTop_toTopOf="@+id/iv_head" />
 
     <TextView
         android:id="@+id/tv_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="15dp"
+        tools:text="aaaaaaaaaaa"
         app:layout_constrainedWidth="true"
+        app:layout_constraintHorizontal_bias="0"
         app:layout_constraintLeft_toRightOf="@id/iv_head"
         app:layout_constraintRight_toLeftOf="@id/line_1"
         android:background="@drawable/shape_msg_others"
-        app:layout_constraintTop_toBottomOf="@id/iv_head" />
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+        app:layout_constraintTop_toTopOf="@id/iv_arrow" />
 
     <View
         android:id="@+id/line_1"
@@ -42,16 +58,30 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/iv_arrow_r"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:scaleType="fitXY"
+        android:visibility="gone"
+        android:src="@drawable/icon_arrow_green"
+        app:layout_constraintRight_toRightOf="@id/tv_content_r"
+        app:layout_constraintTop_toTopOf="@+id/iv_head_r" />
+
     <TextView
         android:id="@+id/tv_content_r"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constrainedWidth="true"
+        app:layout_constraintHorizontal_bias="1"
+        android:padding="15dp"
         app:layout_constraintLeft_toRightOf="@id/line_2"
         app:layout_constraintRight_toLeftOf="@id/iv_head_r"
         android:visibility="gone"
         android:background="@drawable/shape_msg"
-        app:layout_constraintTop_toBottomOf="@id/iv_head_r" />
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
+        app:layout_constraintTop_toTopOf="@id/iv_arrow_r" />
 
     <View
         android:id="@+id/line_2"

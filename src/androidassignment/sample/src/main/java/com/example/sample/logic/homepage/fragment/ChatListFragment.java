@@ -1,8 +1,9 @@
 package com.example.sample.logic.homepage.fragment;
 
+import static com.example.sample.Constant.SESSION_ID;
+
 import android.content.Intent;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sample.R;
 import com.example.sample.data.SessionBean;
+import com.example.sample.livebus.LiveBus;
 import com.example.sample.logic.homepage.adapter.SessionListAdapter;
 import com.example.sample.logic.p2pchat.SessionActivity;
 import com.example.sample.mvvm.BaseFragment;
@@ -34,8 +36,8 @@ public class ChatListFragment extends BaseFragment<SessionViewModel> {
         mListAdapter = new SessionListAdapter(new ItemClickCallBack<SessionBean>() {
             @Override
             public void onItemClick(int position, SessionBean data) {
-                Toast.makeText(getContext(), String.format("去%s详情页", data.getSesionName()), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getActivity(), SessionActivity.class);
+                intent.putExtra(SESSION_ID, data.getSessionId());
                 startActivity(intent);
             }
         });
@@ -53,6 +55,12 @@ public class ChatListFragment extends BaseFragment<SessionViewModel> {
             }
         });
 
-        mViewModel.getSessionHis();
+        LiveBus.getInstance().getMessageArr().observe(this, new Observer<SessionBean>() {
+            @Override
+            public void onChanged(SessionBean sessionBean) {
+                mViewModel.getSessionList();
+            }
+        });
+        mViewModel.getSessionList();
     }
 }

@@ -1,5 +1,7 @@
 package com.example.sample.viewmodel;
 
+import static com.example.sample.Constant.FIRESTROE_COLLECT_USERS;
+
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -64,7 +66,7 @@ public class AllCourseViewModel extends ViewModel {
 //                    }
 //                });
 
-        db.collection("users")
+        db.collection(FIRESTROE_COLLECT_USERS)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override

@@ -1,6 +1,8 @@
 package com.example.sample.data;
 
-public class CourseFileBean {
+import java.io.Serializable;
+
+public class CourseFileBean implements Serializable {
     int fileType;
     String fileUrl;
 

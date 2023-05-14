@@ -9,11 +9,13 @@ import com.example.sample.mvvm.BaseActivity;
 import com.example.sample.viewmodel.HomeViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+
 public class HomeActivity extends BaseActivity<HomeViewModel> {
 
     @Override
     protected void initData() {
-
+        //监听聊天消息
+        mViewModel.setSessionListener();
     }
 
     @Override

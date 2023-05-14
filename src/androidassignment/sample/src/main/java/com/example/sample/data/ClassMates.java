@@ -1,14 +1,16 @@
 package com.example.sample.data;
 
-public class ClassMates {
-    int uid;
+import java.io.Serializable;
+
+public class ClassMates implements Serializable {
+    String uid;
     String name;
 
-    public int getUid() {
+    public String getUid() {
         return uid;
     }
 
-    public void setUid(int uid) {
+    public void setUid(String uid) {
         this.uid = uid;
     }
 

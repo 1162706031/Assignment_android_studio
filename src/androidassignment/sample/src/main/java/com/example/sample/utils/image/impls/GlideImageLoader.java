@@ -25,5 +25,16 @@ public class GlideImageLoader {
                 .into(imageView);
     }
 
+    public static void load(ImageView imageView, String url, int def) {
+        Activity activity = ActivityExt.getActivityFromView(imageView);
+        if (ActivityExt.isActivityDestroyed(activity)) {
+            return;
+        }
+        Glide.with(activity)
+                .load(url)
+                .apply(RequestOptions.errorOf(def))
+                .into(imageView);
+    }
+
 
 }
