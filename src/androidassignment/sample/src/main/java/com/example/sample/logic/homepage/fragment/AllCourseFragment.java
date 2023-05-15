@@ -1,9 +1,11 @@
 package com.example.sample.logic.homepage.fragment;
 
+import static com.example.sample.Constant.COURSE_ID;
+
+import android.content.Intent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -11,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sample.R;
 import com.example.sample.data.CourseBean;
+import com.example.sample.logic.coursedetail.CourseDetailActivity;
 import com.example.sample.logic.homepage.adapter.AllCourseAdapter;
 import com.example.sample.mvvm.BaseFragment;
 import com.example.sample.mvvm.ItemClickCallBack;
@@ -39,7 +42,9 @@ public class AllCourseFragment extends BaseFragment<AllCourseViewModel> {
         mAdapter = new AllCourseAdapter(new ItemClickCallBack<CourseBean>() {
             @Override
             public void onItemClick(int position, CourseBean data) {
-                Toast.makeText(getContext(), String.format("去%s详情页", data.getCourseName()), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getContext(), CourseDetailActivity.class);
+                intent.putExtra(COURSE_ID, data.getCourseId());
+                startActivity(intent);
             }
         });
         mRcv.setLayoutManager(new GridLayoutManager(getContext(), 2));
@@ -70,8 +75,5 @@ public class AllCourseFragment extends BaseFragment<AllCourseViewModel> {
 
         //startup with all data
         mViewModel.searchAllCourse("");
-
-
-        mViewModel.uploadAllcourse();
     }
 }

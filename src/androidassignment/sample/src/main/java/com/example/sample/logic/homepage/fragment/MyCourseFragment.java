@@ -1,16 +1,18 @@
 package com.example.sample.logic.homepage.fragment;
 
+import static com.example.sample.Constant.COURSE_ID;
+
+import android.content.Intent;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.lifecycle.Observer;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sample.R;
 import com.example.sample.data.CourseBean;
-import com.example.sample.logic.homepage.adapter.MyCourseAdapter;
-import com.example.sample.logic.homepage.adapter.MyCourseIndexAdapter;
+import com.example.sample.logic.coursedetail.CourseDetailActivity;
+import com.example.sample.logic.homepage.adapter.AllCourseAdapter;
 import com.example.sample.mvvm.BaseFragment;
 import com.example.sample.mvvm.ItemClickCallBack;
 import com.example.sample.viewmodel.MyCourseViewModel;
@@ -19,9 +21,12 @@ import java.util.List;
 
 public class MyCourseFragment extends BaseFragment<MyCourseViewModel> {
 
-    RecyclerView mRcvIndex, mRcvList;
-    MyCourseAdapter mListAdapter;
-    MyCourseIndexAdapter mIndexAdapter;
+    RecyclerView mRcv;
+    AllCourseAdapter mAdapter;
+
+//    EditText mEtSearch;
+//    ImageButton mBtnSearch;
+
 
     @Override
     protected int setLayoutId() {
@@ -30,47 +35,44 @@ public class MyCourseFragment extends BaseFragment<MyCourseViewModel> {
 
     @Override
     protected void initView(View root) {
-        mRcvIndex = root.findViewById(R.id.rcv_index);
-        mRcvList = root.findViewById(R.id.rcv_list);
-
-        mListAdapter = new MyCourseAdapter(new ItemClickCallBack<CourseBean>() {
+        mRcv = root.findViewById(R.id.rcv_list);
+//        mEtSearch = root.findViewById(R.id.et_search);
+//        mBtnSearch = root.findViewById(R.id.btn_search);
+        mAdapter = new AllCourseAdapter(new ItemClickCallBack<CourseBean>() {
             @Override
             public void onItemClick(int position, CourseBean data) {
-                Toast.makeText(getContext(), String.format("去%s详情页", data.getCourseName()), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getContext(), CourseDetailActivity.class);
+                intent.putExtra(COURSE_ID, data.getCourseId());
+                startActivity(intent);
             }
         });
-        mRcvList.setLayoutManager(new LinearLayoutManager(getContext()));
-        mRcvList.setAdapter(mListAdapter);
-
-        mIndexAdapter = new MyCourseIndexAdapter(new ItemClickCallBack<String>() {
-            @Override
-            public void onItemClick(int position, String data) {
-                mViewModel.catalogSelected(data);
-            }
-        });
-        mRcvIndex.setLayoutManager(new LinearLayoutManager(getContext()));
-        mRcvIndex.setAdapter(mIndexAdapter);
+        mRcv.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        mRcv.setAdapter(mAdapter);
 
 
+//        mBtnSearch.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                String content = mEtSearch.getText().toString().trim();
+//
+//                //search the database
+////                mViewModel.searchAllCourse(content);
+//            }
+//        });
     }
 
     @Override
     protected void initData() {
-        mViewModel.indexList.observe(this, new Observer<List<String>>() {
-            @Override
-            public void onChanged(List<String> strings) {
-                mIndexAdapter.refreshData(strings);
-            }
-        });
-
         mViewModel.currentCourseList.observe(this, new Observer<List<CourseBean>>() {
             @Override
             public void onChanged(List<CourseBean> courseBeans) {
-                mListAdapter.refreshData(courseBeans);
+                mAdapter.refreshData(courseBeans);
             }
         });
 
-        //获取我的课程信息，刷新index
-        mViewModel.getAllMyCourseFromDatabase();
+
+        //startup with all data
+        mViewModel.searchAllCourse("");
+
     }
 }

@@ -1,8 +1,6 @@
 package com.example.sample.data;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 public class CourseBean implements Serializable {
 
@@ -14,9 +12,6 @@ public class CourseBean implements Serializable {
     String teacherName;
     String des;
 
-    List<CourseFileBean> files = new ArrayList<>();
-
-    List<ClassMates> classMates = new ArrayList<>();
 
     public String getCoverUrl() {
         return coverUrl;
@@ -66,19 +61,5 @@ public class CourseBean implements Serializable {
         this.des = des;
     }
 
-    public List<CourseFileBean> getFiles() {
-        return files;
-    }
 
-    public void setFiles(List<CourseFileBean> files) {
-        this.files = files;
-    }
-
-    public List<ClassMates> getClassMates() {
-        return classMates;
-    }
-
-    public void setClassMates(List<ClassMates> classMates) {
-        this.classMates = classMates;
-    }
 }

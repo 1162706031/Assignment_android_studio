@@ -5,6 +5,15 @@ import java.io.Serializable;
 public class CourseFileBean implements Serializable {
     int fileType;
     String fileUrl;
+    String fileName;
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
 
     public int getFileType() {
         return fileType;
