@@ -14,8 +14,4 @@
         android:id="@+id/Fragment_Page_3"
         android:icon="@drawable/icon_chat"
         android:title="Chat" />
-    <item
-        android:id="@+id/Fragment_Page_4"
-        android:icon="@drawable/icon_chat"
-        android:title="ClassMates" />
 </menu>
