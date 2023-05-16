@@ -1,4 +1,4 @@
-package com.example.sample.logic.homepage.adapter;
+package com.example.sample.logic.coursedetail.fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,7 +41,7 @@ public class ClassMatesAdapter extends RecyclerView.Adapter<ClassMatesAdapter.Vi
     @Override
     public void onBindViewHolder(@NonNull ClassMatesAdapter.ViewHolder holder, int position) {
         ClassMates bean = dataList.get(position);
-        holder.TvName.setText(bean.getName());
+        holder.TvName.setText(bean.getDisplayName());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

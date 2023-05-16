@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
@@ -13,16 +11,13 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.lifecycle.Observer;
 
-import com.example.sample.R;
+import com.example.sample.databinding.ActivityAuthBinding;
 import com.example.sample.logic.homepage.HomeActivity;
 import com.example.sample.mvvm.BaseActivity;
 import com.example.sample.utils.ToastUtils;
 import com.example.sample.viewmodel.AuthViewModel;
 
-public class LoginActivity extends BaseActivity<AuthViewModel> {
-    EditText mEtUserName;
-    EditText mEtPwd;
-    Button mBtnLogin;
+public class LoginActivity extends BaseActivity<AuthViewModel, ActivityAuthBinding> {
     ActivityResultLauncher<Intent> mAtyResult;
 
     @Override
@@ -34,7 +29,7 @@ public class LoginActivity extends BaseActivity<AuthViewModel> {
                 if (result.getResultCode() == Activity.RESULT_OK) {
                     // Handle the result
                     Intent data = result.getData();
-                    mEtUserName.setText(data.getStringExtra("userEmail"));
+                    mViewBinding.loginUsername.setText(data.getStringExtra("userEmail"));
                 }
             }
         });
@@ -54,21 +49,18 @@ public class LoginActivity extends BaseActivity<AuthViewModel> {
 
     @Override
     protected void initView() {
-        mEtUserName = findViewById(R.id.login_username);
-        mEtPwd = findViewById(R.id.login_password);
-        mBtnLogin = findViewById(R.id.login_button);
-        findViewById(R.id.signupRedirectText).setOnClickListener(new View.OnClickListener() {
+        mViewBinding.signupRedirectText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 goSignUp();
             }
         });
 
-        mBtnLogin.setOnClickListener(new View.OnClickListener() {
+        mViewBinding.loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String user = mEtUserName.getText().toString().trim();
-                String pwd = mEtPwd.getText().toString().trim();
+                String user = mViewBinding.loginUsername.getText().toString().trim();
+                String pwd = mViewBinding.loginPassword.getText().toString().trim();
                 if (TextUtils.isEmpty(user) || TextUtils.isEmpty(pwd)) {
                     ToastUtils.show(getBaseContext(), "empty user or pwd ！");
                     return;
@@ -85,7 +77,7 @@ public class LoginActivity extends BaseActivity<AuthViewModel> {
     }
 
     @Override
-    protected int setLayoutId() {
-        return R.layout.activity_auth;
+    protected ActivityAuthBinding getViewBinding() {
+        return ActivityAuthBinding.inflate(getLayoutInflater());
     }
 }

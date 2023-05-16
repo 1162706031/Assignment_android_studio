@@ -3,11 +3,12 @@
 
     <application android:name=".MyApplication">
         <activity android:name="com.example.sample.logic.homepage.HomeActivity" />
-        <activity android:name="com.example.sample.logic.coursedetail.CourseDetailActivity" />
         <activity
             android:name="com.example.sample.logic.p2pchat.SessionActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity android:name="com.example.sample.logic.auth.LoginActivity" />
         <activity android:name="com.example.sample.logic.auth.SignUpActivity" />
+        <activity android:name="com.example.sample.logic.coursedetail.CourseInfoActivity" />
     </application>
+
 </manifest>

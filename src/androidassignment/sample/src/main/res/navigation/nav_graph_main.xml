@@ -29,11 +29,4 @@
         <!--        <action android:id="@+id/action_page2"-->
         <!--            app:destination="@id/Fragment_Page_2"/>-->
     </fragment>
-    <fragment
-        android:id="@+id/Fragment_Page_4"
-        android:label="fragment_page4"
-        android:name="com.example.sample.logic.homepage.fragment.ClassMateFragment">
-        <!--        <action android:id="@+id/action_page2"-->
-        <!--            app:destination="@id/Fragment_Page_2"/>-->
-    </fragment>
 </navigation>

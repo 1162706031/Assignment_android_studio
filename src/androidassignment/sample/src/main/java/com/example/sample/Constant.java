@@ -25,5 +25,6 @@ public class Constant {
     public static final String FIRESTROE_COLLECT_COURSE = "course";
     public static final String FIRESTROE_COLLECT_SUBSCRIBER = "subscriber";
     public static final String FIRESTROE_COLLECT_FILES = "files";
+    public static final String FIRESTROE_COLLECT_RECORDS = "records";
 
 }

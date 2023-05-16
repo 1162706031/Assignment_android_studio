@@ -19,15 +19,16 @@ import java.util.List;
 
 public class CourseDetailViewModel extends ViewModel {
 
+    String mCourseId;
     public MutableLiveData<CourseBean> courseLiveData = new MutableLiveData<>();
 
     public MutableLiveData<List<CourseFileBean>> filesLiveData = new MutableLiveData<>();
     public MutableLiveData<List<ClassMates>> classMatesLiveData = new MutableLiveData<>();
 
-    public void getCourse(String courseId) {
+    public void getCourse() {
         FirebaseFirestore.getInstance()
                 .collection(Constant.FIRESTROE_COLLECT_COURSE)
-                .document(courseId)
+                .document(mCourseId)
                 .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -72,13 +73,13 @@ public class CourseDetailViewModel extends ViewModel {
 
     }
 
-    public void subscribe(String id) {
+    public void subscribe() {
         if (courseLiveData.getValue() == null) {
             return;
         }
         FirebaseFirestore.getInstance()
                 .collection(Constant.FIRESTROE_COLLECT_COURSE)
-                .document(id)
+                .document(mCourseId)
                 .collection(Constant.FIRESTROE_COLLECT_SUBSCRIBER)
                 .document(MyApplication.user1.getEmail())
                 .set(MyApplication.user1);
@@ -89,5 +90,10 @@ public class CourseDetailViewModel extends ViewModel {
                 .collection(Constant.FIRESTROE_COLLECT_COURSE)
                 .document(courseLiveData.getValue().getCourseId())
                 .set(courseLiveData.getValue());
+    }
+
+    public void checkSubscribe(String courseId) {
+        mCourseId = courseId;
+
     }
 }

@@ -1,24 +1,22 @@
 package com.example.sample.logic.coursedetail.fragment;
 
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.TextView;
+import android.view.ViewGroup;
 
-import com.example.sample.R;
+import com.example.sample.databinding.FragmentCoursedetailBinding;
 import com.example.sample.mvvm.BaseFragment;
 import com.example.sample.viewmodel.CourseDetailViewModel;
 
-public class CourseDetailFragment extends BaseFragment<CourseDetailViewModel> {
-    TextView mTvInfo;
+public class CourseDetailFragment extends BaseFragment<CourseDetailViewModel, FragmentCoursedetailBinding> {
 
     @Override
-    protected int setLayoutId() {
-        return R.layout.fragment_coursedetail;
+    protected FragmentCoursedetailBinding getViewBinding(LayoutInflater inflater, ViewGroup container) {
+        return FragmentCoursedetailBinding.inflate(inflater, container, false);
     }
 
     @Override
     protected void initView(View root) {
-        mTvInfo = root.findViewById(R.id.tv_info);
-        mTvInfo.setText("详情");
     }
 
     @Override

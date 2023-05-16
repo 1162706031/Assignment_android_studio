@@ -3,22 +3,22 @@ package com.example.sample.data;
 import java.io.Serializable;
 
 public class ClassMates implements Serializable {
-    String uid;
-    String name;
+    String email;
+    String displayName;
 
-    public String getUid() {
-        return uid;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUid(String uid) {
-        this.uid = uid;
+    public void setEmail(String uid) {
+        this.email = uid;
     }
 
-    public String getName() {
-        return name;
+    public String getDisplayName() {
+        return displayName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDisplayName(String name) {
+        this.displayName = name;
     }
 }

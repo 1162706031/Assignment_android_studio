@@ -1,0 +1,7 @@
+<resources>
+    <string name="title_activity_course_info">CourseInfoActivity</string>
+    <string name="tab_text_1">info</string>
+    <string name="tab_text_2">files</string>
+    <string name="tab_text_3">subscribers</string>
+    <string name="tab_text_4">records</string>
+</resources>

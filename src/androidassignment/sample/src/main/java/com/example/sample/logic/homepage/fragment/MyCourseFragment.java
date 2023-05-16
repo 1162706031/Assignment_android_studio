@@ -3,15 +3,16 @@ package com.example.sample.logic.homepage.fragment;
 import static com.example.sample.Constant.COURSE_ID;
 
 import android.content.Intent;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.sample.R;
 import com.example.sample.data.CourseBean;
-import com.example.sample.logic.coursedetail.CourseDetailActivity;
+import com.example.sample.databinding.FragmentMycourseBinding;
+import com.example.sample.logic.coursedetail.CourseInfoActivity;
 import com.example.sample.logic.homepage.adapter.AllCourseAdapter;
 import com.example.sample.mvvm.BaseFragment;
 import com.example.sample.mvvm.ItemClickCallBack;
@@ -19,46 +20,30 @@ import com.example.sample.viewmodel.MyCourseViewModel;
 
 import java.util.List;
 
-public class MyCourseFragment extends BaseFragment<MyCourseViewModel> {
+public class MyCourseFragment extends BaseFragment<MyCourseViewModel, FragmentMycourseBinding> {
 
-    RecyclerView mRcv;
     AllCourseAdapter mAdapter;
-
-//    EditText mEtSearch;
-//    ImageButton mBtnSearch;
 
 
     @Override
-    protected int setLayoutId() {
-        return R.layout.fragment_mycourse;
+    protected FragmentMycourseBinding getViewBinding(LayoutInflater inflater, ViewGroup container) {
+        return FragmentMycourseBinding.inflate(inflater, container, false);
     }
 
     @Override
     protected void initView(View root) {
-        mRcv = root.findViewById(R.id.rcv_list);
-//        mEtSearch = root.findViewById(R.id.et_search);
-//        mBtnSearch = root.findViewById(R.id.btn_search);
         mAdapter = new AllCourseAdapter(new ItemClickCallBack<CourseBean>() {
             @Override
             public void onItemClick(int position, CourseBean data) {
-                Intent intent = new Intent(getContext(), CourseDetailActivity.class);
+                Intent intent = new Intent(getContext(), CourseInfoActivity.class);
                 intent.putExtra(COURSE_ID, data.getCourseId());
                 startActivity(intent);
             }
         });
-        mRcv.setLayoutManager(new GridLayoutManager(getContext(), 2));
-        mRcv.setAdapter(mAdapter);
+        mViewBinding.rcvList.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        mViewBinding.rcvList.setAdapter(mAdapter);
 
 
-//        mBtnSearch.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                String content = mEtSearch.getText().toString().trim();
-//
-//                //search the database
-////                mViewModel.searchAllCourse(content);
-//            }
-//        });
     }
 
     @Override

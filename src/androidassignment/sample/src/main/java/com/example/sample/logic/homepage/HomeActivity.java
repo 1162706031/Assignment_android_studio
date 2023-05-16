@@ -5,12 +5,12 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.sample.R;
+import com.example.sample.databinding.ActivityHomeBinding;
 import com.example.sample.mvvm.BaseActivity;
 import com.example.sample.viewmodel.HomeViewModel;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
-public class HomeActivity extends BaseActivity<HomeViewModel> {
+public class HomeActivity extends BaseActivity<HomeViewModel, ActivityHomeBinding> {
 
     @Override
     protected void initData() {
@@ -22,12 +22,11 @@ public class HomeActivity extends BaseActivity<HomeViewModel> {
     protected void initView() {
         NavHostFragment navHosFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.id_fragment_container);
         NavController navController = navHosFragment.getNavController();
-        BottomNavigationView bottomView = (BottomNavigationView) findViewById(R.id.id_bottom_navigation);
-        NavigationUI.setupWithNavController(bottomView, navController);
+        NavigationUI.setupWithNavController(mViewBinding.idBottomNavigation, navController);
     }
 
     @Override
-    protected int setLayoutId() {
-        return R.layout.activity_home;
+    protected ActivityHomeBinding getViewBinding() {
+        return ActivityHomeBinding.inflate(getLayoutInflater());
     }
 }

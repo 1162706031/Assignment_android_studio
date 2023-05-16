@@ -6,16 +6,19 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.viewbinding.ViewBinding;
 
 import java.lang.reflect.ParameterizedType;
 
-public abstract class BaseActivity<VM extends ViewModel> extends AppCompatActivity {
+public abstract class BaseActivity<VM extends ViewModel, VB extends ViewBinding> extends AppCompatActivity {
     protected VM mViewModel;
+    protected VB mViewBinding;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(setLayoutId());
+        mViewBinding = getViewBinding();
+        setContentView(mViewBinding.getRoot());
         Class<VM> clazz = (Class<VM>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
         mViewModel = new ViewModelProvider(this).get(clazz);
         initView();
@@ -35,5 +38,5 @@ public abstract class BaseActivity<VM extends ViewModel> extends AppCompatActivi
     /**
      * 设置layout资源id
      */
-    protected abstract int setLayoutId();
+    protected abstract VB getViewBinding();
 }

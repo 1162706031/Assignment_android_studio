@@ -1,42 +1,49 @@
 package com.example.sample.logic.coursedetail.fragment;
 
-import android.view.View;
+import static com.example.sample.Constant.COURSE_ID;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.sample.R;
-import com.example.sample.data.CourseFileBean;
-import com.example.sample.logic.coursedetail.adapter.FileAdapter;
+import com.example.sample.data.CourseRecordBean;
+import com.example.sample.databinding.FragmentFilesBinding;
+import com.example.sample.logic.coursedetail.adapter.RecordAdapter;
 import com.example.sample.mvvm.BaseFragment;
-import com.example.sample.mvvm.ItemClickCallBack;
-import com.example.sample.viewmodel.CourseDetailViewModel;
+import com.example.sample.viewmodel.CourseRecordViewModel;
 
-public class UpdateRecordListFragment extends BaseFragment<CourseDetailViewModel> {
+import java.util.List;
+
+public class UpdateRecordListFragment extends BaseFragment<CourseRecordViewModel, FragmentFilesBinding> {
     RecyclerView mRcvList;
-    FileAdapter mListAdapter;
+    RecordAdapter mListAdapter;
 
     @Override
-    protected int setLayoutId() {
-        return R.layout.fragment_files;
+    protected FragmentFilesBinding getViewBinding(LayoutInflater inflater, ViewGroup container) {
+        return FragmentFilesBinding.inflate(inflater, container, false);
     }
 
     @Override
     protected void initView(View root) {
-        mRcvList = root.findViewById(R.id.rcv_list);
 
-        mListAdapter = new FileAdapter(new ItemClickCallBack<CourseFileBean>() {
-            @Override
-            public void onItemClick(int position, CourseFileBean data) {
-
-            }
-        });
-        mRcvList.setLayoutManager(new LinearLayoutManager(getContext()));
-        mRcvList.setAdapter(mListAdapter);
+        mListAdapter = new RecordAdapter();
+        mViewBinding.rcvList.setLayoutManager(new LinearLayoutManager(getContext()));
+        mViewBinding.rcvList.setAdapter(mListAdapter);
     }
 
     @Override
     protected void initData() {
+        mViewModel.recordsLiveData.observe(this, new Observer<List<CourseRecordBean>>() {
+            @Override
+            public void onChanged(List<CourseRecordBean> courseRecordBeans) {
+                mListAdapter.refreshData(courseRecordBeans);
+            }
+        });
+        mViewModel.getCourseRecord(COURSE_ID);
 
     }
 }

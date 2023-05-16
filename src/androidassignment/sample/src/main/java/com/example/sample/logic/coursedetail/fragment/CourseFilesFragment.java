@@ -1,30 +1,34 @@
 package com.example.sample.logic.coursedetail.fragment;
 
+import static com.example.sample.Constant.COURSE_ID;
+
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
+import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.sample.R;
 import com.example.sample.data.CourseFileBean;
+import com.example.sample.databinding.FragmentFilesBinding;
 import com.example.sample.logic.coursedetail.adapter.FileAdapter;
 import com.example.sample.mvvm.BaseFragment;
 import com.example.sample.mvvm.ItemClickCallBack;
-import com.example.sample.viewmodel.CourseDetailViewModel;
+import com.example.sample.viewmodel.CourseFilesViewModel;
 
-public class CourseFilesFragment extends BaseFragment<CourseDetailViewModel> {
+import java.util.List;
 
-    RecyclerView mRcvList;
+public class CourseFilesFragment extends BaseFragment<CourseFilesViewModel, FragmentFilesBinding> {
+
     FileAdapter mListAdapter;
 
     @Override
-    protected int setLayoutId() {
-        return R.layout.fragment_files;
+    protected FragmentFilesBinding getViewBinding(LayoutInflater inflater, ViewGroup container) {
+        return FragmentFilesBinding.inflate(inflater, container, false);
     }
 
     @Override
     protected void initView(View root) {
-        mRcvList = root.findViewById(R.id.rcv_list);
 
         mListAdapter = new FileAdapter(new ItemClickCallBack<CourseFileBean>() {
             @Override
@@ -32,12 +36,18 @@ public class CourseFilesFragment extends BaseFragment<CourseDetailViewModel> {
 
             }
         });
-        mRcvList.setLayoutManager(new LinearLayoutManager(getContext()));
-        mRcvList.setAdapter(mListAdapter);
+        mViewBinding.rcvList.setLayoutManager(new LinearLayoutManager(getContext()));
+        mViewBinding.rcvList.setAdapter(mListAdapter);
     }
 
     @Override
     protected void initData() {
-
+        mViewModel.filesLiveData.observe(this, new Observer<List<CourseFileBean>>() {
+            @Override
+            public void onChanged(List<CourseFileBean> courseFileBeans) {
+                mListAdapter.refreshData(courseFileBeans);
+            }
+        });
+        mViewModel.getCourseFiles(getArguments().getString(COURSE_ID));
     }
 }
