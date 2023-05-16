@@ -42,7 +42,7 @@ public class FileAdapter extends RecyclerView.Adapter<FileAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull FileAdapter.ViewHolder holder, int position) {
         CourseFileBean courseBean = dataList.get(position);
         holder.TvName.setText(courseBean.getFileName());
-        holder.TvType.setText(courseBean.getFileType());
+        holder.TvType.setText(courseBean.getFileType() + "");
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

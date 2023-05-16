@@ -1,4 +1,4 @@
-package com.example.sample.logic.coursedetail.fragment;
+package com.example.sample.logic.coursedetail.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;

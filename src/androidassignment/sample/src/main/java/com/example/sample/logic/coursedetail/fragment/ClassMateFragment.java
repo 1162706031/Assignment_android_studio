@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.sample.data.ClassMates;
 import com.example.sample.databinding.FragmentClassmatesBinding;
+import com.example.sample.logic.coursedetail.adapter.ClassMatesAdapter;
 import com.example.sample.logic.p2pchat.SessionActivity;
 import com.example.sample.mvvm.BaseFragment;
 import com.example.sample.mvvm.ItemClickCallBack;

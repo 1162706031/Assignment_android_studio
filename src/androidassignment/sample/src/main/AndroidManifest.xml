@@ -9,6 +9,7 @@
         <activity android:name="com.example.sample.logic.auth.LoginActivity" />
         <activity android:name="com.example.sample.logic.auth.SignUpActivity" />
         <activity android:name="com.example.sample.logic.coursedetail.CourseInfoActivity" />
+        <activity android:name="com.example.sample.logic.classfile.RenderActivity" />
     </application>
 
 </manifest>

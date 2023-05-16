@@ -6,6 +6,8 @@ public class Constant {
 
     //课程名称
     public static final String COURSE_ID = "COURSE_ID";
+    //课程文件
+    public static final String FILE_DATA = "FILE_DATA";
 
     /**
      * firstore  path    /users

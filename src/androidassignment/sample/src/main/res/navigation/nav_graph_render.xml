@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_main.xml"
+    app:startDestination="@id/Fragment_Page_1">
+    <fragment
+        android:id="@+id/Fragment_Page_1"
+        android:label="fragment_page1"
+        android:name="com.example.sample.logic.classfile.fragment.VideoRenderFragment">
+        <!--        <action android:id="@+id/action_page2"-->
+        <!--            app:destination="@id/Fragment_Page_2"/>-->
+    </fragment>
+
+    <!--    <fragment-->
+    <!--        android:id="@+id/Fragment_Page_2"-->
+    <!--        android:label="fragment_page2"-->
+    <!--        android:name="com.example.sample.logic.homepage.fragment.MyCourseFragment">-->
+    <!--        &lt;!&ndash;        <action&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:id="@+id/action_page1"&ndash;&gt;-->
+    <!--        &lt;!&ndash;            app:destination="@id/Fragment_Page_1"/>&ndash;&gt;-->
+    <!--        &lt;!&ndash;        <action&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:id="@+id/action_page3"&ndash;&gt;-->
+    <!--        &lt;!&ndash;            app:destination="@id/Fragment_Page_3"/>&ndash;&gt;-->
+    <!--    </fragment>-->
+    <!--    <fragment-->
+    <!--        android:id="@+id/Fragment_Page_3"-->
+    <!--        android:label="fragment_page3"-->
+    <!--        android:name="com.example.sample.logic.homepage.fragment.ChatListFragment">-->
+    <!--        &lt;!&ndash;        <action android:id="@+id/action_page2"&ndash;&gt;-->
+    <!--        &lt;!&ndash;            app:destination="@id/Fragment_Page_2"/>&ndash;&gt;-->
+    <!--    </fragment>-->
+</navigation>
